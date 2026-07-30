@@ -14,6 +14,8 @@ public class SplitwiseApp
         System.out.println(payerName);
         System.out.println(totalAmount);
         System.out.println(numFriends);
+        double perPersonShare = totalAmount / numFriends;
+        System.out.println(perPersonShare);
 
 
 
