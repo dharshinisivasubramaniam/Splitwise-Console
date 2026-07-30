@@ -11,11 +11,12 @@ public class SplitwiseApp
       String payerName = "Dharsh";
       double totalAmount=500.0;
       int numFriends=3;
-        System.out.println(payerName);
-        System.out.println(totalAmount);
-        System.out.println(numFriends);
         double perPersonShare = totalAmount / numFriends;
-        System.out.println(perPersonShare);
+        String expenseLine = payerName + " Paid $" + totalAmount;
+        String shareLine = "Each person pays: "+perPersonShare;
+        System.out.println(expenseLine);
+        System.out.println(shareLine);
+
 
 
 
