@@ -47,8 +47,9 @@ public class SplitwiseApp
     {
         System.out.print("Friend name: ");
         String friendName = input.nextLine();
-        friends.add(new Friend(friendName));
-        System.out.println("Added " + friendName + ".");
+        Friend friend = new Friend(friendName);
+        friends.add(friend);
+        System.out.println("Added %s (id %d).".formatted(friend.getName(), friend.getId()));
     }
     public static void listFriends(ArrayList<Friend> friends)
     {
@@ -59,7 +60,7 @@ public class SplitwiseApp
         {
             for (Friend friend : friends)
             {
-                System.out.println("- "+friend.getName());
+                System.out.println("- %d: %s".formatted(friend.getId(),friend.getName()));
             }
         }
     }
