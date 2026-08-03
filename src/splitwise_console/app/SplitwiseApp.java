@@ -51,7 +51,7 @@ public class SplitwiseApp
         String friendName = input.nextLine();
         Friend friend = new Friend(friendName);
         friends.add(friend);
-        System.out.println("Added %s (id %d).".formatted(friend.getName(), friend.getId()));
+        System.out.println(FriendDisplay.addedMessage(friend));
     }
     public static void listFriends(ArrayList<Friend> friends)
     {
@@ -62,7 +62,7 @@ public class SplitwiseApp
         {
             for (Friend friend : friends)
             {
-                System.out.println("- %d: %s".formatted(friend.getId(),friend.getName()));
+                System.out.println(FriendDisplay.listLine(friend));
             }
         }
     }
@@ -89,5 +89,20 @@ public class SplitwiseApp
         System.out.println(expenseLine);
         System.out.println(shareLine);
     }
+
+
+    private static class FriendDisplay
+    {
+        static String listLine(Friend friend)
+        {
+            return "- %d: %s".formatted(friend.getId(), friend.getName());
+        }
+
+        static String addedMessage(Friend friend)
+        {
+            return "Added %s (id %d).".formatted(friend.getName(), friend.getId());
+        }
+    }
 }
+
 
