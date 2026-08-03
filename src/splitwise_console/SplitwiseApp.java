@@ -70,6 +70,7 @@ public class SplitwiseApp
         System.out.print("Total amount (Rs.)? ");
         double totalAmount = input.nextDouble();
         input.nextLine();
+        Expense expense = new Expense(payerName, totalAmount);
         int numFriends;
         if (friends.isEmpty())
         {
@@ -79,8 +80,8 @@ public class SplitwiseApp
         {
             numFriends = friends.size();
         }
-        double perPersonShare = totalAmount / numFriends;
-        String expenseLine = "%s paid Rs.%.2f".formatted(payerName, totalAmount);
+        double perPersonShare = expense.getAmount() / numFriends;
+        String expenseLine = "%s paid Rs.%.2f".formatted(expense.getPayerName(), expense.getAmount());
         String shareLine = "Each person pays: %.2f".formatted(perPersonShare);
         System.out.println(expenseLine);
         System.out.println(shareLine);
