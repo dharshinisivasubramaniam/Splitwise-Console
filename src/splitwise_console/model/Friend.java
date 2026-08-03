@@ -1,4 +1,4 @@
-package splitwise_console;
+package splitwise_console.model;
 
 public class Friend
 {

@@ -1,8 +1,10 @@
-package splitwise_console;
+package splitwise_console.app;
 
 import java.util.Scanner;
-
 import java.util.ArrayList;
+
+import splitwise_console.model.ExpenseLine;
+import splitwise_console.model.Friend;
 
 public class SplitwiseApp
 {
