@@ -14,7 +14,7 @@ public class SplitwiseApp
       System.out.println("Track shared expenses with friends.");
       System.out.println();
       System.out.println("Ready. More features coming in the next lessons.");
-      ArrayList<String> friends = new ArrayList<>();
+      ArrayList<Friend> friends = new ArrayList<>();
       boolean running = true;
       while (running)
       {
@@ -43,32 +43,33 @@ public class SplitwiseApp
           }
       }
     }
-    public static void addFriend(Scanner input, ArrayList<String> friends)
+    public static void addFriend(Scanner input, ArrayList<Friend> friends)
     {
         System.out.print("Friend name: ");
         String friendName = input.nextLine();
-        friends.add(friendName);
+        friends.add(new Friend(friendName));
         System.out.println("Added " + friendName + ".");
     }
-    public static void listFriends(ArrayList<String> friends)
+    public static void listFriends(ArrayList<Friend> friends)
     {
         if (friends.isEmpty())
         {
             System.out.println("No friends yet. Add friends first (option 2).");
         } else
         {
-            for (String name : friends)
+            for (Friend friend : friends)
             {
-                System.out.println("- " + name);
+                System.out.println("- "+friend.getName());
             }
         }
     }
-    public static void recordExpense(Scanner input, ArrayList<String> friends)
+    public static void recordExpense(Scanner input, ArrayList<Friend> friends)
     {
         System.out.print("Who paid? ");
         String payerName = input.nextLine();
         System.out.print("Total amount (Rs.)? ");
         double totalAmount = input.nextDouble();
+        input.nextLine();
         int numFriends;
         if (friends.isEmpty())
         {
