@@ -28,47 +28,9 @@ public class SplitwiseApp
           input.nextLine();
           switch (choice)
           {
-              case 1 ->
-              {
-                  System.out.print("Who paid? ");
-                  String payerName = input.nextLine();
-                  System.out.print("Total amount (Rs.)? ");
-                  double totalAmount = input.nextDouble();
-                  int numFriends;
-                  if (friends.isEmpty())
-                  {
-                      System.out.println("No friends yet. Add friends first (option 2).");
-                      continue;
-                  } else
-                  {
-                      numFriends = friends.size();
-                  }
-                  double perPersonShare = totalAmount / numFriends;
-                  String expenseLine = "%s paid Rs.%.2f".formatted(payerName, totalAmount);
-                  String shareLine = "Each person pays: %.2f".formatted(perPersonShare);
-                  System.out.println(expenseLine);
-                  System.out.println(shareLine);
-              }
-              case 2 ->
-              {
-                  System.out.print("Friend name: ");
-                  String friendName = input.nextLine();
-                  friends.add(friendName);
-                  System.out.println("Added " + friendName + ".");
-              }
-              case 3 ->
-              {
-                  if (friends.isEmpty())
-                  {
-                      System.out.println("No friends yet. Add friends first (option 2).");
-                  } else
-                  {
-                      for (String name : friends)
-                      {
-                          System.out.println("- " + name);
-                      }
-                  }
-              }
+              case 1 -> recordExpense(input,friends);
+              case 2 -> addFriend(input,friends);
+              case 3 -> listFriends(friends);
               case 0 ->
               {
                   System.out.println("Good Bye!");
@@ -80,6 +42,47 @@ public class SplitwiseApp
               }
           }
       }
+    }
+    public static void addFriend(Scanner input, ArrayList<String> friends)
+    {
+        System.out.print("Friend name: ");
+        String friendName = input.nextLine();
+        friends.add(friendName);
+        System.out.println("Added " + friendName + ".");
+    }
+    public static void listFriends(ArrayList<String> friends)
+    {
+        if (friends.isEmpty())
+        {
+            System.out.println("No friends yet. Add friends first (option 2).");
+        } else
+        {
+            for (String name : friends)
+            {
+                System.out.println("- " + name);
+            }
+        }
+    }
+    public static void recordExpense(Scanner input, ArrayList<String> friends)
+    {
+        System.out.print("Who paid? ");
+        String payerName = input.nextLine();
+        System.out.print("Total amount (Rs.)? ");
+        double totalAmount = input.nextDouble();
+        int numFriends;
+        if (friends.isEmpty())
+        {
+            System.out.println("No friends yet. Add friends first (option 2).");
+            return;
+        } else
+        {
+            numFriends = friends.size();
+        }
+        double perPersonShare = totalAmount / numFriends;
+        String expenseLine = "%s paid Rs.%.2f".formatted(payerName, totalAmount);
+        String shareLine = "Each person pays: %.2f".formatted(perPersonShare);
+        System.out.println(expenseLine);
+        System.out.println(shareLine);
     }
 }
 
