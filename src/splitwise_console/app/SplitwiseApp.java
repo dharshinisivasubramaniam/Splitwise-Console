@@ -6,8 +6,17 @@ import java.util.ArrayList;
 import splitwise_console.model.ExpenseLine;
 import splitwise_console.model.Friend;
 
+/**
+ * Splitwise console application for tracking shared expenses
+ * among friends through a command-line interface.
+ */
 public class SplitwiseApp
 {
+    /**
+     * Starts the Splitwise console application.
+     *
+     * @param args command-line arguments (not used)
+     */
     public static void main(String[] args)
     {
         Scanner input = new Scanner(System.in);
@@ -45,6 +54,14 @@ public class SplitwiseApp
           }
       }
     }
+
+    /**
+     * Adds a new friend to the friend list by taking the friend's name
+     * as input from the user.
+     *
+     * @param input scanner object used to read user input
+     * @param friends list that stores all added Friend objects
+     */
     public static void addFriend(Scanner input, ArrayList<Friend> friends)
     {
         System.out.print("Friend name: ");

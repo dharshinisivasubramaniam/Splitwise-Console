@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"splitwise_console.app"},{"l":"splitwise_console.model"}];updateSearchResults();
